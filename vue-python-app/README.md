@@ -14,9 +14,12 @@ vue-python-app/
     ├── src/             # Vue source code
     │   ├── assets/      # Images and other assets
     │   ├── components/  # Vue components
-    │   └── styles/      # SASS styles
+    │   ├── router/      # Vue router
+    │   ├── styles/      # SASS styles
+    │   ├── views/       # Vue views
+    │   └── App.vue      # Main application component
     ├── package.json     # Node.js dependencies
-    └── vue.config.js    # Vue configuration
+    └── vite.config.js   # Vue configuration
 ```
 
 ## Prerequisites
@@ -124,8 +127,6 @@ npm run build
 The built files will be in the `frontend-new/dist` directory.
 
 ### Backend
-
-For production, consider using a WSGI server like Gunicorn:
 
 ```
 pip install gunicorn
