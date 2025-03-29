@@ -1,0 +1,141 @@
+// Custom SCSS variables
+$primary: #4a6baf;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Import Bootstrap Icons
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+// Custom styles
+body {
+  background-color: #f5f7fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Typography improvements
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+// Card enhancements
+.card {
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+  
+  .card-header {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-weight: 600;
+  }
+  
+  .card-footer {
+    background-color: transparent;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+}
+
+// Button enhancements
+.btn {
+  border-radius: 0.375rem;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+  
+  &.btn-primary {
+    box-shadow: 0 2px 4px rgba(74, 107, 175, 0.3);
+    
+    &:hover {
+      box-shadow: 0 4px 8px rgba(74, 107, 175, 0.4);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.btn-outline-primary {
+    &:hover {
+      box-shadow: 0 4px 8px rgba(74, 107, 175, 0.2);
+    }
+  }
+}
+
+// Form controls
+.form-control {
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba(74, 107, 175, 0.25);
+    border-color: $primary;
+  }
+}
+
+// Navbar customization
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+// Alert customization
+.alert {
+  border: none;
+  border-radius: 0.375rem;
+  
+  &.alert-success {
+    border-left: 4px solid $success;
+  }
+  
+  &.alert-danger {
+    border-left: 4px solid $danger;
+  }
+  
+  &.alert-warning {
+    border-left: 4px solid $warning;
+  }
+  
+  &.alert-info {
+    border-left: 4px solid $info;
+  }
+}
+
+// Utility classes
+.shadow-sm {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+// Animations
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
