@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
+import { config } from '../config'
 
 const message = ref('')
 const loading = ref(false)
@@ -11,9 +12,8 @@ const fetchMessage = async () => {
   error.value = null
   
   try {
-    // Use relative path for API calls which will work with Vite's proxy in development
-    // and can be configured for production with environment variables
-    const response = await axios.get('/api/hello')
+    // Use the full API URL from config
+    const response = await axios.get(`${config.apiBaseUrl}/hello`)
     message.value = response.data.message
   } catch (err) {
     error.value = err.message || 'Unknown error occurred while connecting to the API'
@@ -29,8 +29,8 @@ const resetMessage = () => {
 }
 
 const copyEndpoint = () => {
-  // Use the deployed API URL or fallback to relative path
-  const apiUrl = '/api/hello'
+  // Use the full API URL from config
+  const apiUrl = `${config.apiBaseUrl}/hello`
   navigator.clipboard.writeText(apiUrl)
     .then(() => {
       console.log('Endpoint copied to clipboard')
