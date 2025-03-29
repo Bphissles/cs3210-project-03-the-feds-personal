@@ -1,0 +1,83 @@
+// Theme Variables
+// This file contains all the theme variables for both light and dark modes
+
+// Common colors (used in both themes)
+$primary-blue: #2563eb;
+$secondary-blue: #3b82f6;
+$accent-cyan: #06b6d4;
+$accent-purple: #8b5cf6;
+$accent-green: #10b981;
+$accent-orange: #f59e0b;
+$accent-red: #ef4444;
+
+// Light Theme Colors
+$light-bg-primary: #ffffff;
+$light-bg-secondary: #f8fafc;
+$light-bg-tertiary: #f1f5f9;
+$light-text-primary: #0f172a;
+$light-text-secondary: #475569;
+$light-text-muted: #64748b;
+$light-border-color: #e2e8f0;
+$light-shadow-color: rgba(0, 0, 0, 0.1);
+
+// Dark Theme Colors
+$dark-bg-primary: #0f172a;
+$dark-bg-secondary: #1e293b;
+$dark-bg-tertiary: #334155;
+$dark-text-primary: #f8fafc;
+$dark-text-secondary: #cbd5e1;
+$dark-text-muted: #94a3b8;
+$dark-border-color: #334155;
+$dark-shadow-color: rgba(0, 0, 0, 0.5);
+
+// CSS Variables for theme switching
+:root {
+  // Default Light Theme
+  --bg-primary: #{$light-bg-primary};
+  --bg-secondary: #{$light-bg-secondary};
+  --bg-tertiary: #{$light-bg-tertiary};
+  --text-primary: #{$light-text-primary};
+  --text-secondary: #{$light-text-secondary};
+  --text-muted: #{$light-text-muted};
+  --border-color: #{$light-border-color};
+  --shadow-color: #{$light-shadow-color};
+  
+  // Brand Colors
+  --primary: #{$primary-blue};
+  --secondary: #{$secondary-blue};
+  --accent-cyan: #{$accent-cyan};
+  --accent-purple: #{$accent-purple};
+  --accent-green: #{$accent-green};
+  --accent-orange: #{$accent-orange};
+  --accent-red: #{$accent-red};
+  
+  // Bootstrap overrides
+  --bs-primary: #{$primary-blue};
+  --bs-primary-rgb: 37, 99, 235;
+  --bs-secondary: #{$secondary-blue};
+  --bs-secondary-rgb: 59, 130, 246;
+  --bs-success: #{$accent-green};
+  --bs-success-rgb: 16, 185, 129;
+  --bs-info: #{$accent-cyan};
+  --bs-info-rgb: 6, 182, 212;
+  --bs-warning: #{$accent-orange};
+  --bs-warning-rgb: 245, 158, 11;
+  --bs-danger: #{$accent-red};
+  --bs-danger-rgb: 239, 68, 68;
+}
+
+// Dark Theme Class
+.dark-theme {
+  --bg-primary: #{$dark-bg-primary};
+  --bg-secondary: #{$dark-bg-secondary};
+  --bg-tertiary: #{$dark-bg-tertiary};
+  --text-primary: #{$dark-text-primary};
+  --text-secondary: #{$dark-text-secondary};
+  --text-muted: #{$dark-text-muted};
+  --border-color: #{$dark-border-color};
+  --shadow-color: #{$dark-shadow-color};
+  
+  // Bootstrap overrides for dark mode
+  --bs-body-bg: #{$dark-bg-primary};
+  --bs-body-color: #{$dark-text-primary};
+}
