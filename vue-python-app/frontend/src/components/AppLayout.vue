@@ -20,6 +20,12 @@ import Footer from './Footer.vue'
 
 <style lang="scss" scoped>
 .app-layout {
-  background-color: #f5f7fa;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
 }
 </style>

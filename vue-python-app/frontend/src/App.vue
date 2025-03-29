@@ -5,11 +5,10 @@
       <section class="py-5 text-center">
         <div class="row py-lg-5">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <img src="./assets/logo.svg" alt="Vue logo" class="logo mb-4" width="100">
-            <h1 class="fw-bold">Vue 3 + Python App</h1>
-            <p class="lead text-muted">
-              A modern web application built with Vue 3, Bootstrap 5.3, and a Python Flask backend.
-              This template includes best practices for layout, components, and styling.
+            <img src="./assets/torch-trans.png" alt="Vue logo" class="logo mb-4" width="100">
+            <h1 class="fw-bold">The Feds | Project 3</h1>
+            <p class="lead hero-description">
+              A Python Variable Format and Scope Checker built with<br>Vue 3, Bootstrap 5.3, and a Python Flask backend.
             </p>
             <div class="d-flex justify-content-center gap-2 mt-4">
               <a href="https://vuejs.org/" target="_blank" class="btn btn-primary">Learn Vue</a>
@@ -100,10 +99,33 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import AppLayout from './components/AppLayout.vue'
 import HelloWorld from './components/HelloWorld.vue'
 import ContentCard from './components/ContentCard.vue'
 import AlertMessage from './components/AlertMessage.vue'
+
+// Initialize theme based on user's preference when the app loads
+onMounted(() => {
+  // Check if user has a saved preference
+  const savedTheme = localStorage.getItem('theme');
+  
+  if (savedTheme === 'dark') {
+    document.documentElement.classList.add('dark-theme');
+  } else if (savedTheme === 'light') {
+    document.documentElement.classList.remove('dark-theme');
+  } else {
+    // Check for system preference if no saved preference
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (prefersDarkMode) {
+      document.documentElement.classList.add('dark-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+    }
+  }
+});
 </script>
 
 <style lang="scss">
@@ -135,9 +157,19 @@ section {
       transform: translateX(-50%);
       width: 50px;
       height: 3px;
-      background-color: var(--bs-primary);
+      background-color: var(--primary);
       border-radius: 3px;
     }
+  }
+}
+
+// Hero section styles
+.hero-description {
+  color: var(--text-secondary);
+  
+  .dark-theme & {
+    color: var(--text-secondary);
+    opacity: 0.9;
   }
 }
 </style>

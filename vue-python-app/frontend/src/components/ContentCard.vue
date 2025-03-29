@@ -26,7 +26,7 @@ defineProps({
     </div>
     <div v-if="title || subtitle" :class="['card-header', headerClass]">
       <h5 v-if="title" class="card-title mb-0">{{ title }}</h5>
-      <h6 v-if="subtitle" class="card-subtitle mt-1 text-muted">{{ subtitle }}</h6>
+      <h6 v-if="subtitle" class="card-subtitle mt-1 card-subtitle-text">{{ subtitle }}</h6>
     </div>
     <div class="card-body">
       <slot></slot>
@@ -39,19 +39,37 @@ defineProps({
 
 <style lang="scss" scoped>
 .content-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  border: 1px solid var(--border-color);
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px var(--shadow-color);
+  background-color: var(--bg-primary);
   
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    // transform: translateY(-5px);
+    box-shadow: 0 8px 15px var(--shadow-color);
   }
   
   .card-img-top-wrapper {
     overflow: hidden;
+    position: relative;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(to top, rgba(0,0,0,0.3), rgba(0,0,0,0));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    &:hover:after {
+      opacity: 1;
+    }
     
     img {
       transition: transform 0.5s ease;
@@ -66,17 +84,76 @@ defineProps({
   }
   
   .card-header {
-    background-color: transparent;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 1.25rem 0.75rem;
     
     .card-title {
+      font-family: 'JetBrains Mono', monospace;
       font-weight: 600;
+      letter-spacing: -0.5px;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+    }
+    
+    .card-subtitle {
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.2px;
+      color: var(--text-secondary);
+      
+      &.card-subtitle-text {
+        .dark-theme & {
+          color: var(--text-secondary);
+          opacity: 0.85;
+        }
+      }
+    }
+  }
+  
+  .card-body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background-color: var(--bg-tertiary);
+      color: var(--accent-cyan);
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.25rem;
+      font-size: 0.9em;
     }
   }
   
   .card-footer {
-    background-color: transparent;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-secondary);
+    
+    .btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 0.375rem 1rem;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
   }
 }
 </style>
