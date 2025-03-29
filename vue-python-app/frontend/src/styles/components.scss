@@ -1,0 +1,141 @@
+// Tech components styling (used in HelloWorld, PythonFileUploader, etc.)
+.tech-heading {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.tech-subheading {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.tech-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+
+.description {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  font-size: 1.5rem;
+}
+
+.message-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  background-color: var(--bg-tertiary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  color: var(--accent-cyan);
+  
+  .dark-theme & {
+    color: var(--accent-cyan);
+    background-color: rgba(var(--bs-info-rgb), 0.2);
+    border: 1px solid rgba(var(--bs-info-rgb), 0.3);
+  }
+}
+
+.tech-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.4rem;
+  transition: all 0.3s ease;
+  
+  &:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+  }
+}
+
+.tech-btn-sm {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+// API response container
+.api-response {
+  min-height: 80px;
+  font-family: 'Roboto', sans-serif;
+  
+  .alert {
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+  }
+}
+
+// Endpoint details styling
+.endpoint-details {
+  .tech-subheading {
+    opacity: 0.9;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+}
+
+.endpoint-code-block {
+  background-color: var(--bg-secondary);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.endpoint-url {
+  background-color: #2d333b; // Darker background for better contrast
+  color: #e6edf3; // Lighter text color for better readability
+  border: 1px solid #444c56; // Subtle border
+  font-weight: 500;
+  
+  // Highlight the method differently
+  &::first-line {
+    color: #ff7b72; // Highlight POST/GET methods
+  }
+  
+  .dark-theme & {
+    background-color: #1e2228;
+    color: #e6edf3;
+  }
+}
+
+// Code styling
+.code-container {
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+.code-block {
+  margin: 0;
+  padding: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  line-height: 2;
+  white-space: pre-wrap;
+  word-break: break-word;
+  
+  // Base styles for when highlight.js hasn't loaded or fails
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+}
+
+// File upload form
+.file-upload-form {
+  .form-text {
+    font-size: 1.2em;
+  }
+}

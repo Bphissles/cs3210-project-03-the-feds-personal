@@ -20,9 +20,20 @@
     <!-- API Demo Section -->
     <section class="py-3">
       <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
           <ContentCard title="API Integration Demo" subtitle="Test the connection to the Python backend">
             <HelloWorld />
+          </ContentCard>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Python File Uploader Section -->
+    <section class="py-3">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <ContentCard title="Python File Analyzer" subtitle="Upload and view Python file contents">
+            <PythonFileUploader />
           </ContentCard>
         </div>
       </div>
@@ -33,7 +44,7 @@
       <h2 class="text-center mb-4">Key Features</h2>
       <div class="row g-4">
         <div class="col-md-4">
-          <ContentCard title="Vue 3 Frontend" image="https://picsum.photos/id/1/500/300">
+          <ContentCard title="Vue 3 Frontend - Hosted with Netlify" image="https://picsum.photos/id/1/500/300">
             <p>Built with Vue 3 Composition API and script setup for clean, maintainable code.</p>
             <template #footer>
               <a href="https://vuejs.org/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
@@ -41,57 +52,31 @@
           </ContentCard>
         </div>
         <div class="col-md-4">
-          <ContentCard title="Bootstrap 5.3 & SASS" image="https://picsum.photos/id/2/500/300">
-            <p>Responsive design with Bootstrap 5.3 and custom SASS styling for a modern look and feel.</p>
-            <template #footer>
-              <a href="https://getbootstrap.com/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
-            </template>
-          </ContentCard>
-        </div>
-        <div class="col-md-4">
-          <ContentCard title="Python Flask Backend" image="https://picsum.photos/id/3/500/300">
+          <ContentCard title="Python + Flask Backend - Hosted with Render" image="https://picsum.photos/id/3/500/300">
             <p>Lightweight and powerful Python Flask backend with RESTful API endpoints.</p>
             <template #footer>
               <a href="https://flask.palletsprojects.com/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
             </template>
           </ContentCard>
         </div>
-      </div>
-    </section>
-    
-    <!-- Alert Examples Section -->
-    <section class="py-3">
-      <h2 class="text-center mb-4">Alert Examples</h2>
-      <div class="row">
-        <div class="col-md-6 mb-4">
-          <AlertMessage type="success" title="Success Alert" icon="bi-check-circle-fill">
-            This is a success alert with an icon and a title.
-          </AlertMessage>
-        </div>
-        <div class="col-md-6 mb-4">
-          <AlertMessage type="danger" title="Error Alert" icon="bi-exclamation-triangle-fill">
-            This is an error alert with an icon and a title.
-          </AlertMessage>
-        </div>
-        <div class="col-md-6 mb-4">
-          <AlertMessage type="warning" title="Warning Alert" icon="bi-exclamation-circle-fill">
-            This is a warning alert with an icon and a title.
-          </AlertMessage>
-        </div>
-        <div class="col-md-6 mb-4">
-          <AlertMessage type="info" title="Info Alert" icon="bi-info-circle-fill">
-            This is an info alert with an icon and a title.
-          </AlertMessage>
+        <div class="col-md-4">
+          <ContentCard title="Bootstrap 5.3 & SASS - Making things look good" image="https://picsum.photos/id/2/500/300">
+            <p>Responsive design with Bootstrap 5.3 and custom SASS styling for a modern look and feel.</p>
+            <template #footer>
+              <a href="https://getbootstrap.com/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
+            </template>
+          </ContentCard>
         </div>
       </div>
     </section>
+
   </div>
 </template>
 
 <script setup>
 import HelloWorld from '../components/HelloWorld.vue'
 import ContentCard from '../components/ContentCard.vue'
-import AlertMessage from '../components/AlertMessage.vue'
+import PythonFileUploader from '../components/PythonFileUploader.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -102,5 +87,9 @@ import AlertMessage from '../components/AlertMessage.vue'
     color: var(--text-secondary);
     opacity: 0.9;
   }
+}
+
+.lead {
+  font-size: 1.75rem;
 }
 </style>

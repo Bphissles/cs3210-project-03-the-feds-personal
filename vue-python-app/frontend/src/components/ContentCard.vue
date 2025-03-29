@@ -126,15 +126,6 @@ defineProps({
       margin-top: 1.5rem;
       margin-bottom: 1rem;
     }
-    
-    code {
-      font-family: 'JetBrains Mono', monospace;
-      background-color: var(--bg-tertiary);
-      color: var(--accent-cyan);
-      padding: 0.2rem 0.4rem;
-      border-radius: 0.25rem;
-      font-size: 0.9em;
-    }
   }
   
   .card-footer {
@@ -143,17 +134,7 @@ defineProps({
     font-family: 'Roboto', sans-serif;
     color: var(--text-secondary);
     
-    .btn {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      padding: 0.375rem 1rem;
-      transition: all 0.2s ease;
-      
-      &:hover {
-        transform: translateY(-2px);
-      }
-    }
+    // Card-specific button styles can go here if needed
   }
 }
 </style>
