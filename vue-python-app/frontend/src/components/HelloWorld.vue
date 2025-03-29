@@ -11,7 +11,9 @@ const fetchMessage = async () => {
   error.value = null
   
   try {
-    const response = await axios.get('http://localhost:5000/api/hello')
+    // Use relative path for API calls which will work with Vite's proxy in development
+    // and can be configured for production with environment variables
+    const response = await axios.get('/api/hello')
     message.value = response.data.message
   } catch (err) {
     error.value = err.message || 'Unknown error occurred while connecting to the API'
@@ -27,7 +29,9 @@ const resetMessage = () => {
 }
 
 const copyEndpoint = () => {
-  navigator.clipboard.writeText('http://localhost:5000/api/hello')
+  // Use the deployed API URL or fallback to relative path
+  const apiUrl = '/api/hello'
+  navigator.clipboard.writeText(apiUrl)
     .then(() => {
       console.log('Endpoint copied to clipboard')
     })

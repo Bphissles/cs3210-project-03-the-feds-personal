@@ -1,5 +1,8 @@
 <script setup>
 import ThemeToggle from './ThemeToggle.vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 </script>
 
 <template>
@@ -16,19 +19,14 @@ import ThemeToggle from './ThemeToggle.vue';
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <router-link class="nav-link" :class="{ active: route.path === '/' }" to="/">
               <i class="bi bi-house-door me-1"></i> Home
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="bi bi-grid-3x3-gap me-1"></i> Features
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="bi bi-info-circle me-1"></i> About
-            </a>
+            <router-link class="nav-link" :class="{ active: route.path === '/components' }" to="/components">
+              <i class="bi bi-grid-3x3-gap me-1"></i> Components
+            </router-link>
           </li>
         </ul>
         <div class="d-flex align-items-center">
