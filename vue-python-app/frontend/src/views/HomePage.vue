@@ -10,8 +10,9 @@
             A Python Variable Format and Scope Checker built with<br>Vue 3, Bootstrap 5.3, and a Python Flask backend.
           </p>
           <div class="d-flex justify-content-center gap-2 mt-4">
-            <a href="https://vuejs.org/" target="_blank" class="btn btn-primary">Learn Vue</a>
-            <a href="https://flask.palletsprojects.com/" target="_blank" class="btn btn-outline-secondary">Learn Flask</a>
+            <a href="https://vuejs.org/" class="btn btn-primary">The Process</a>
+            <a href="https://flask.palletsprojects.com/" class="btn btn-info">The Tests</a>
+            <a href="https://flask.palletsprojects.com/" class="btn btn-success">The Deployments</a>
           </div>
         </div>
       </div>
@@ -44,7 +45,7 @@
       <h2 class="text-center mb-4">Key Features</h2>
       <div class="row g-4">
         <div class="col-md-4">
-          <ContentCard title="Vue 3 Frontend - Hosted with Netlify" image="https://picsum.photos/id/1/500/300">
+          <ContentCard title="Vue 3 Frontend" image="/images/vue-thumb.png">
             <p>Built with Vue 3 Composition API and script setup for clean, maintainable code.</p>
             <template #footer>
               <a href="https://vuejs.org/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
@@ -52,7 +53,7 @@
           </ContentCard>
         </div>
         <div class="col-md-4">
-          <ContentCard title="Python + Flask Backend - Hosted with Render" image="https://picsum.photos/id/3/500/300">
+          <ContentCard title="Python + Flask Backend" image="/images/flask-thumb.png">
             <p>Lightweight and powerful Python Flask backend with RESTful API endpoints.</p>
             <template #footer>
               <a href="https://flask.palletsprojects.com/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
@@ -60,10 +61,26 @@
           </ContentCard>
         </div>
         <div class="col-md-4">
-          <ContentCard title="Bootstrap 5.3 & SASS - Making things look good" image="https://picsum.photos/id/2/500/300">
+          <ContentCard title="Bootstrap 5.3 & SASS" image="/images/bootstrap-thumb.png">
             <p>Responsive design with Bootstrap 5.3 and custom SASS styling for a modern look and feel.</p>
             <template #footer>
               <a href="https://getbootstrap.com/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
+            </template>
+          </ContentCard>
+        </div>
+        <div class="col-md-4">
+          <ContentCard title="Render - Deploying the Backend" image="/images/render-thumb.png">
+            <p>Deploying the Python Flask backend with Render for a production-ready environment.</p>
+            <template #footer>
+              <a href="https://render.com/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
+            </template>
+          </ContentCard>
+        </div>
+        <div class="col-md-4">
+          <ContentCard title="Netlify - Deploying the Frontend" image="/images/netlify-thumb.png">
+            <p>Deploying the Vue 3 frontend with Netlify for a production-ready environment.</p>
+            <template #footer>
+              <a href="https://netlify.com/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
             </template>
           </ContentCard>
         </div>

@@ -42,19 +42,18 @@ const handleLinkClick = (e,message) => {
           </div>
         </div>
         <div class="col-md-2 mb-3 mb-md-0">
-          <h6 class="tech-heading">Links</h6>
-          <ul class="list-unstyled tech-list">
-            <li><a href="#" class="text-decoration-none footer-link"><i class="bi bi-chevron-right me-1 small"></i>Home</a></li>
-            <li><a href="#" class="text-decoration-none footer-link"><i class="bi bi-chevron-right me-1 small"></i>Features</a></li>
-            <li><a href="#" class="text-decoration-none footer-link"><i class="bi bi-chevron-right me-1 small"></i>About</a></li>
-          </ul>
-        </div>
-        <div class="col-md-2 mb-3 mb-md-0">
           <h6 class="tech-heading">Resources</h6>
           <ul class="list-unstyled tech-list">
             <li><a href="https://vuejs.org/" class="text-decoration-none footer-link" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-1 small"></i>Vue.js</a></li>
             <li><a href="https://getbootstrap.com/" class="text-decoration-none footer-link" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-1 small"></i>Bootstrap</a></li>
             <li><a href="https://flask.palletsprojects.com/" class="text-decoration-none footer-link" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-1 small"></i>Flask</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-3 mb-md-0">
+          <h6 class="tech-heading">More Resources</h6>
+          <ul class="list-unstyled tech-list">
+            <li><a href="https://netlify.com/" class="text-decoration-none footer-link" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-1 small"></i>Netlify</a></li>
+            <li><a href="https://render.com/" class="text-decoration-none footer-link" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-1 small"></i>Render</a></li>
           </ul>
         </div>
         <div class="col-md-4">
