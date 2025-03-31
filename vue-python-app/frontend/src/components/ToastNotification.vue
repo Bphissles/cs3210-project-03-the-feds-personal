@@ -1,28 +1,3 @@
-<template>
-  <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div 
-      class="toast show" 
-      role="alert" 
-      aria-live="assertive" 
-      aria-atomic="true"
-      v-if="visible"
-    >
-      <div class="toast-header">
-        <strong class="me-auto">{{ title }}</strong>
-        <button 
-          type="button" 
-          class="btn-close" 
-          @click="hideToast" 
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="toast-body">
-        {{ message }}
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { ref, watch } from 'vue';
 
@@ -63,6 +38,31 @@ watch(() => props.show, (newValue) => {
   }
 });
 </script>
+
+<template>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div 
+      class="toast show" 
+      role="alert" 
+      aria-live="assertive" 
+      aria-atomic="true"
+      v-if="visible"
+    >
+      <div class="toast-header">
+        <strong class="me-auto">{{ title }}</strong>
+        <button 
+          type="button" 
+          class="btn-close" 
+          @click="hideToast" 
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="toast-body">
+        {{ message }}
+      </div>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .toast {

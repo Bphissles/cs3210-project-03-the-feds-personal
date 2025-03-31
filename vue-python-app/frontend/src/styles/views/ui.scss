@@ -1,0 +1,222 @@
+// UI view styles
+.ui-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-card {
+  background-color: var(--bg-primary);
+  
+  .list-group-item {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  
+  .ui-heading, .ui-description {
+    color: var(--text-primary);
+  }
+  
+  strong {
+    color: var(--bs-primary);
+    font-weight: 600;
+  }
+}
+
+.ui-preview {
+  background-color: var(--bg-secondary);
+  border-left: 4px solid var(--bs-primary);
+  
+  .preview-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 8px;
+  }
+  
+  .preview-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  
+  .preview-content {
+    padding-top: 8px;
+  }
+  
+  .preview-hero {
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+  
+  .preview-text-line {
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+  
+  .preview-button {
+    height: 20px;
+    width: 80px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+  
+  .preview-upload {
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    border: 1px dashed rgba(0, 0, 0, 0.1);
+  }
+  
+  .preview-code-area {
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+  
+  .preview-result-item {
+    height: 12px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+  
+  .preview-api-path {
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+  
+  .preview-json {
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+  
+  .preview-chart {
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+}
+
+.responsive-showcase {
+  .device {
+    margin: 0 15px 20px;
+  }
+  
+  .device-frame {
+    background-color: var(--bg-secondary);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    
+    .device-content {
+      background: linear-gradient(135deg, rgba(var(--bs-primary-rgb), 0.1), rgba(var(--bs-info-rgb), 0.1));
+    }
+  }
+  
+  .device-mobile {
+    .device-frame {
+      width: 80px;
+      height: 160px;
+      
+      .device-content {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  
+  .device-tablet {
+    .device-frame {
+      width: 140px;
+      height: 180px;
+      
+      .device-content {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  
+  .device-desktop {
+    .device-frame {
+      width: 220px;
+      height: 140px;
+      
+      .device-content {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  
+  .device-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+}
+
+// Dark mode styles
+.dark-theme {
+  .ui-card {
+    background-color: #1e2124;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    
+    .card-body {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .list-group-item {
+      color: rgba(255, 255, 255, 0.9) !important;
+      background-color: transparent !important;
+    }
+    
+    .ui-heading, .ui-description {
+      color: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    strong {
+      color: #61dafb !important;
+    }
+  }
+  
+  .ui-preview {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    
+    .preview-header {
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .preview-hero, 
+    .preview-text-line, 
+    .preview-button,
+    .preview-upload,
+    .preview-code-area,
+    .preview-result-item,
+    .preview-api-path,
+    .preview-json,
+    .preview-chart {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .preview-upload {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+  
+  .responsive-showcase {
+    .device-frame {
+      background-color: #2d3035;
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    .device-name {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}

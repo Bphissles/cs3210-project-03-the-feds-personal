@@ -1,0 +1,114 @@
+// Functionality view styles
+.feature-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.functionality-card {
+  background-color: var(--bg-primary);
+  
+  .list-group-item {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  
+  .feature-heading, .feature-description {
+    color: var(--text-primary);
+  }
+  
+  strong {
+    color: var(--bs-primary);
+    font-weight: 600;
+  }
+}
+
+.code-example, .naming-conventions, .result-example {
+  background-color: var(--bg-secondary);
+  border-left: 4px solid var(--bs-primary);
+  overflow-x: auto;
+  
+  code {
+    color: var(--bs-primary);
+    font-weight: 500;
+  }
+}
+
+.naming-conventions {
+  border-left-color: var(--bs-warning);
+}
+
+.result-example {
+  border-left-color: var(--bs-danger);
+  
+  .result-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 0.5rem;
+    
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+  
+  .suggestion {
+    font-size: 0.875rem;
+    color: var(--bs-danger);
+  }
+}
+
+// Dark theme styles
+.dark-theme {
+  .functionality-card {
+    background-color: #1e2124;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    
+    .card-body {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .list-group-item {
+      color: rgba(255, 255, 255, 0.9) !important;
+      background-color: transparent !important;
+    }
+    
+    .feature-heading, .feature-description {
+      color: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    strong {
+      color: #61dafb !important;
+    }
+  }
+  
+  .code-example, .naming-conventions, .result-example {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    
+    code {
+      color: #61dafb !important;
+    }
+  }
+  
+  .naming-conventions {
+    border-left-color: #ffc107 !important;
+  }
+  
+  .result-example {
+    border-left-color: #dc3545 !important;
+    
+    .result-item {
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .suggestion {
+      color: #f77 !important;
+    }
+  }
+  
+  .text-muted {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+}

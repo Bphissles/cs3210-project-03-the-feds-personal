@@ -1,3 +1,28 @@
+<script setup>
+import { ref } from 'vue';
+import ContentCard from '../components/ContentCard.vue';
+import AlertMessage from '../components/AlertMessage.vue';
+import ThemeToggle from '../components/ThemeToggle.vue';
+import ToastNotification from '../components/ToastNotification.vue';
+
+// Import the components library styles
+import '@/styles/views/componentsLibrary.scss';
+
+// Toast state
+const toastVisible = ref(false);
+const toastTitle = ref('');
+const toastMessage = ref('');
+const toastDuration = ref(3000);
+
+// Show toast function
+const showToast = (title, message, duration = 3000) => {
+  toastTitle.value = title;
+  toastMessage.value = message;
+  toastDuration.value = duration;
+  toastVisible.value = true;
+};
+</script>
+
 <template>
   <div class="container py-5">
     <h1 class="mb-5 text-center">Components Library</h1>
@@ -166,46 +191,3 @@
     @close="toastVisible = false"
   />
 </template>
-
-<script setup>
-import { ref } from 'vue';
-import ContentCard from '../components/ContentCard.vue';
-import AlertMessage from '../components/AlertMessage.vue';
-import ThemeToggle from '../components/ThemeToggle.vue';
-import ToastNotification from '../components/ToastNotification.vue';
-
-// Toast state
-const toastVisible = ref(false);
-const toastTitle = ref('');
-const toastMessage = ref('');
-const toastDuration = ref(3000);
-
-// Show toast function
-const showToast = (title, message, duration = 3000) => {
-  toastTitle.value = title;
-  toastMessage.value = message;
-  toastDuration.value = duration;
-  toastVisible.value = true;
-};
-</script>
-
-<style lang="scss" scoped>
-pre {
-  background-color: var(--bg-tertiary);
-  padding: 1rem;
-  border-radius: 0.375rem;
-  overflow-x: auto;
-  
-  code {
-    color: var(--text-primary);
-    background-color: transparent;
-    padding: 0;
-  }
-  
-  .dark-theme & {
-    code {
-      color: var(--text-primary);
-    }
-  }
-}
-</style>

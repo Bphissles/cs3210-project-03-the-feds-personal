@@ -1,0 +1,13 @@
+// HomePage view styles
+.hero-description {
+  color: var(--text-secondary);
+  
+  .dark-theme & {
+    color: var(--text-secondary);
+    opacity: 0.9;
+  }
+}
+
+.lead {
+  font-size: 1.75rem;
+}

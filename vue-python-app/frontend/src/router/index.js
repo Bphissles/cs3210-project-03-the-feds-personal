@@ -8,10 +8,34 @@ const routes = [
     component: HomePage
   },
   {
+    path: '/architecture',
+    name: 'Architecture',
+    // Lazy load the architecture page for better performance
+    component: () => import('../views/Architecture.vue')
+  },
+  {
     path: '/components',
     name: 'Components',
     // Lazy load the components page for better performance
     component: () => import('../views/ComponentsLibrary.vue')
+  },
+  {
+    path: '/functionality',
+    name: 'Functionality',
+    // Lazy load the functionality page for better performance
+    component: () => import('../views/Functionality.vue')
+  },
+  {
+    path: '/ui',
+    name: 'UI',
+    // Lazy load the UI page for better performance
+    component: () => import('../views/UI.vue')
+  },
+  {
+    path: '/workflow',
+    name: 'Workflow',
+    // Lazy load the Workflow page for better performance
+    component: () => import('../views/Workflow.vue')
   }
 ]
 

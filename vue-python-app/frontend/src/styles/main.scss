@@ -65,6 +65,7 @@ h6 {
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px var(--shadow-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  border: 1px solid var(--border-color) !important;
   
   .card-header {
     background-color: var(--bg-secondary);

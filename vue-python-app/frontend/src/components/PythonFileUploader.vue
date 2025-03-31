@@ -166,7 +166,6 @@ const highlightCode = (code) => {
 
 <style lang="scss" scoped>
 .python-file-uploader {
-  // Component-specific overrides can go here if needed
   
   .endpoint-details {
     .tech-subheading {

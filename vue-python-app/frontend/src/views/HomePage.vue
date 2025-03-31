@@ -1,3 +1,8 @@
+<script setup>
+import HelloWorld from '../components/HelloWorld.vue'
+import ContentCard from '../components/ContentCard.vue'
+import PythonFileUploader from '../components/PythonFileUploader.vue'
+</script>
 <template>
   <div class="container">
     <!-- Hero Section -->
@@ -89,24 +94,3 @@
 
   </div>
 </template>
-
-<script setup>
-import HelloWorld from '../components/HelloWorld.vue'
-import ContentCard from '../components/ContentCard.vue'
-import PythonFileUploader from '../components/PythonFileUploader.vue'
-</script>
-
-<style lang="scss" scoped>
-.hero-description {
-  color: var(--text-secondary);
-  
-  .dark-theme & {
-    color: var(--text-secondary);
-    opacity: 0.9;
-  }
-}
-
-.lead {
-  font-size: 1.75rem;
-}
-</style>
