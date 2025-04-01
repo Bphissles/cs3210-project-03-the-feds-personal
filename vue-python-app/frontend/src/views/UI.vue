@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import '@/styles/views/common.scss';
+</script>
 <template>
   <div class="container py-5">
     <h1 class="text-center mb-5">User Interface</h1>

@@ -1,0 +1,175 @@
+// Common styles for all view components
+// Base icon wrapper styling
+.tech-icon-wrapper,
+.feature-icon-wrapper,
+.ui-icon-wrapper,
+.workflow-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Card styling for all view components
+.architecture-card,
+.functionality-card,
+.ui-card,
+.workflow-card {
+  background-color: var(--bg-primary);
+  
+  .list-group-item {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  
+  .tech-text, 
+  .tech-heading, 
+  .tech-subheading,
+  .feature-heading,
+  .feature-description,
+  .ui-heading,
+  .ui-description,
+  .workflow-heading,
+  .workflow-description {
+    color: var(--text-primary);
+  }
+  
+  strong {
+    color: var(--bs-primary);
+    font-weight: 600;
+  }
+}
+
+// Deployment section styling
+.deployment-section {
+  background-color: var(--bg-secondary);
+  border-left: 4px solid var(--bs-primary);
+  
+  .deployment-text {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+  
+  .deployment-platform {
+    font-weight: 700;
+    color: var(--bs-primary);
+  }
+}
+
+// Architecture diagram specific styles
+.architecture-diagram {
+  .arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid #6c757d;
+  }
+  
+  .arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 15px solid #6c757d;
+  }
+}
+
+// Dark theme styles
+.dark-theme {
+  .architecture-card,
+  .functionality-card,
+  .ui-card,
+  .workflow-card {
+    background-color: #1e2124;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    
+    .card-body {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .list-group-item {
+      color: rgba(255, 255, 255, 0.9) !important;
+      background-color: transparent !important;
+    }
+    
+    .tech-text, 
+    .tech-heading, 
+    .tech-subheading,
+    .feature-heading,
+    .feature-description,
+    .ui-heading,
+    .ui-description,
+    .workflow-heading,
+    .workflow-description {
+      color: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    strong {
+      color: #61dafb !important;
+    }
+  }
+  
+  // Deployment section dark mode styling
+  .deployment-section {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-left: 4px solid #61dafb !important;
+    
+    .deployment-platform {
+      color: #61dafb !important;
+      text-shadow: 0 0 8px rgba(97, 218, 251, 0.3);
+    }
+  }
+  
+  // Backend deployment specific styling
+  .backend-deployment {
+    border-left-color: #4ade80 !important;
+    
+    .backend-platform {
+      color: #4ade80 !important;
+      text-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
+    }
+  }
+  
+  // Diagram card styles for dark mode
+  .diagram-card {
+    background-color: #2d3035 !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    
+    .card-body {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .diagram-list li {
+      color: rgba(255, 255, 255, 0.9);
+      
+      strong {
+        color: rgba(255, 255, 255, 0.95) !important;
+      }
+      
+      i.text-primary {
+        color: #61dafb !important;
+      }
+      
+      i.text-success {
+        color: #4ade80 !important;
+      }
+    }
+  }
+  
+  // Arrows for dark mode
+  .arrow-right, .arrow-left {
+    border-color: transparent;
+  }
+  
+  .arrow-right {
+    border-left-color: rgba(255, 255, 255, 0.6) !important;
+  }
+  
+  .arrow-left {
+    border-right-color: rgba(255, 255, 255, 0.6) !important;
+  }
+}
