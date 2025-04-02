@@ -34,6 +34,7 @@ const route = useRoute();
             </router-link>
           </li>
           <li class="nav-item">
+            <!-- MAYBE REMOVE THIS -->
             <router-link class="nav-link" :class="{ active: route.path === '/ui' }" to="/ui">
               <i class="bi bi-layout-text-window me-1"></i> UI
             </router-link>
@@ -41,11 +42,6 @@ const route = useRoute();
           <li class="nav-item">
             <router-link class="nav-link" :class="{ active: route.path === '/workflow' }" to="/workflow">
               <i class="bi bi-kanban me-1"></i> Workflow
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" :class="{ active: route.path === '/components' }" to="/components">
-              <i class="bi bi-grid-3x3-gap me-1"></i> Components
             </router-link>
           </li>
         </ul>
