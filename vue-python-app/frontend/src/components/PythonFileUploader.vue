@@ -6,12 +6,25 @@ import hljs from 'highlight.js/lib/core'
 import python from 'highlight.js/lib/languages/python'
 import 'highlight.js/styles/atom-one-dark.css'
 
+const props = defineProps({
+  endpoint: {
+    type: String,
+    required: true
+  },
+  endpointUrl: {
+    type: String,
+    required: true
+  }
+})
+
 const pythonFile = ref(null)
 const fileName = ref('')
 const fileContent = ref('')
+const parsingResult = ref(null)
 const loading = ref(false)
 const error = ref(null)
 const success = ref(false)
+const isAdvancedParser = ref(false)
 
 const handleFileChange = (event) => {
   const file = event.target.files[0]
@@ -35,18 +48,29 @@ const uploadFile = async () => {
   loading.value = true
   error.value = null
   success.value = false
+  parsingResult.value = null
   
   try {
     const formData = new FormData()
     formData.append('file', pythonFile.value)
     
-    const response = await axios.post(`${config.apiBaseUrl}/python-file`, formData, {
+    const response = await axios.post(`${config.apiBaseUrl}/${props.endpoint}`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     })
     
-    fileContent.value = response.data.content
+    // Check if this is the advanced parser response
+    if (response.data.parsing_result) {
+      isAdvancedParser.value = true
+      parsingResult.value = response.data.parsing_result
+      fileContent.value = ''
+    } else {
+      isAdvancedParser.value = false
+      fileContent.value = response.data.content || ''
+      parsingResult.value = null
+    }
+    
     success.value = true
   } catch (err) {
     error.value = err.message || 'Error uploading file'
@@ -60,8 +84,10 @@ const resetForm = () => {
   pythonFile.value = null
   fileName.value = ''
   fileContent.value = ''
+  parsingResult.value = null
   error.value = null
   success.value = false
+  isAdvancedParser.value = false
   
   // Reset the file input
   const fileInput = document.getElementById('python-file-input')
@@ -90,11 +116,6 @@ const highlightCode = (code) => {
 
 <template>
   <div class="python-file-uploader">
-    <h3 class="tech-heading mb-3">Python File Analyzer</h3>
-    <p class="mb-4 description">
-      Upload a Python (.py) file to view its contents. The file will be sent to the backend for processing.
-    </p>
-    
     <div class="file-upload-form mb-4">
       <div class="mb-3">
         <label for="python-file-input" class="form-label">Select Python File</label>
@@ -141,16 +162,33 @@ const highlightCode = (code) => {
           <strong class="tech-text">Error:</strong> {{ error }}
         </div>
       </div>
-      <div v-else-if="success && fileContent" class="file-content-display">
+      <div v-else-if="success" class="file-content-display">
         <div class="alert alert-success d-flex align-items-center mb-3" role="alert">
           <i class="bi bi-check-circle-fill me-2 flex-shrink-0"></i>
           <div>
             <strong class="tech-text">Success!</strong> File uploaded and processed.
           </div>
         </div>
-        <h5 class="mb-2">File Content:</h5>
-        <div class="code-container">
-          <pre class="code-block"><code class="language-python" v-html="highlightCode(fileContent)"></code></pre>
+        
+        <!-- Simple parser response (file content) -->
+        <div v-if="fileContent && !isAdvancedParser">
+          <h5 class="mb-2">File Content:</h5>
+          <div class="code-container">
+            <pre class="code-block"><code class="language-python" v-html="highlightCode(fileContent)"></code></pre>
+          </div>
+        </div>
+        
+        <!-- Advanced parser response (AST data) -->
+        <div v-if="parsingResult && isAdvancedParser">
+          <h5 class="mb-2">AST Parsing Results:</h5>
+          <div class="mb-3">
+            <div v-if="parsingResult.success" class="parsing-results">
+              <pre class="code-block"><code class="language-python">{{ parsingResult }}</code></pre>
+            </div>
+            <div v-else class="alert alert-danger">
+              <strong>Parsing Error:</strong> {{ parsingResult.error }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -158,7 +196,7 @@ const highlightCode = (code) => {
     <div class="mt-4 pt-3 border-top endpoint-details">
       <h6 class="mb-2 tech-subheading">API Endpoint Details:</h6>
       <div class="d-flex align-items-center endpoint-code-block">
-        <code class="p-2 rounded flex-grow-1 endpoint-url">POST http://localhost:5000/api/python-file</code>
+        <code class="p-2 rounded flex-grow-1 endpoint-url">{{ endpointUrl }}</code>
       </div>
     </div>
   </div>

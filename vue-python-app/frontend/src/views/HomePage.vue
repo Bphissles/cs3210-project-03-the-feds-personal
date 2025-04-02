@@ -38,8 +38,29 @@ import PythonFileUploader from '../components/PythonFileUploader.vue'
     <section class="py-3">
       <div class="row justify-content-center">
         <div class="col-md-10">
-          <ContentCard title="Python File Analyzer" subtitle="Upload and view Python file contents">
-            <PythonFileUploader />
+          <ContentCard 
+            title="Python File Analyzer - Simple" 
+            subtitle="Upload and view Python file contents"
+            wellTitle="Python File Analyzer - Simple"
+            wellSubtitle="Upload a Python (.py) file to view its contents. The file will be sent to the backend for processing."
+          >
+            <PythonFileUploader endpoint="python-file" endpointUrl="http://localhost:5000/api/python-file"/>
+          </ContentCard>
+        </div>
+      </div>
+    </section>
+
+    <!-- Python File Uploader Section -->
+    <section class="py-3">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <ContentCard 
+            title="Python File Analyzer - Advanced" 
+            subtitle="Upload and view Python file contents"
+            wellTitle="Python File Analyzer - Advanced"
+            wellSubtitle="Upload a Python (.py) file to view its contents. The file will be sent to the backend for processing."
+          >
+            <PythonFileUploader endpoint="file-parser" endpointUrl="http://localhost:5000/api/file-parser"/>
           </ContentCard>
         </div>
       </div>

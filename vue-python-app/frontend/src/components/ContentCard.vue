@@ -15,6 +15,14 @@ defineProps({
   headerClass: {
     type: String,
     default: ''
+  },
+  wellTitle: {
+    type: String,
+    default: ''
+  },
+  wellSubtitle: {
+    type: String,
+    default: ''
   }
 })
 </script>
@@ -29,6 +37,10 @@ defineProps({
       <h6 v-if="subtitle" class="card-subtitle mt-1 card-subtitle-text">{{ subtitle }}</h6>
     </div>
     <div class="card-body">
+      <div v-if="wellTitle || wellSubtitle" class="well">
+        <h3 v-if="wellTitle" class="tech-heading mb-3 mt-0">{{ wellTitle }}</h3>
+        <p v-if="wellSubtitle" class="mb-4 description">{{ wellSubtitle }}</p>
+      </div>
       <slot></slot>
     </div>
     <div v-if="$slots.footer" class="card-footer">
