@@ -183,7 +183,7 @@ const highlightCode = (code) => {
           <h5 class="mb-2">AST Parsing Results:</h5>
           <div class="mb-3">
             <div v-if="parsingResult.success" class="parsing-results">
-              <pre class="code-block"><code class="language-python">{{ parsingResult }}</code></pre>
+              <pre class="code-block"><code class="language-python">{{ parsingResult.ast_structure }}</code></pre>
             </div>
             <div v-else class="alert alert-danger">
               <strong>Parsing Error:</strong> {{ parsingResult.error }}
