@@ -127,6 +127,8 @@
   line-height: 2;
   white-space: pre-wrap;
   word-break: break-word;
+  max-height: 400px;
+  overflow-y: auto;
   
   // Base styles for when highlight.js hasn't loaded or fails
   color: var(--text-primary);
