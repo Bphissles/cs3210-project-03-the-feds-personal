@@ -44,6 +44,11 @@ const route = useRoute();
               <i class="bi bi-kanban me-1"></i> Workflow
             </router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :class="{ active: route.path === '/report' }" to="/report">
+              <i class="bi bi-file-text me-1"></i> Report
+            </router-link>
+          </li>
         </ul>
         <div class="d-flex align-items-center">
           <ThemeToggle class="me-3" />

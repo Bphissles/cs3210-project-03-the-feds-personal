@@ -36,6 +36,11 @@ const routes = [
     name: 'Workflow',
     // Lazy load the Workflow page for better performance
     component: () => import('../views/Workflow.vue')
+  },
+  {
+    path: '/report',
+    name: 'Report',
+    component: () => import('../views/Report.vue')
   }
 ]
 

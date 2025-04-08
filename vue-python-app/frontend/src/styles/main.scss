@@ -12,6 +12,7 @@ $dark: #0f172a;         // Dark text primary
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import "./components";
+@import "./views/report";
 
 body {
   background-color: var(--bg-primary);
