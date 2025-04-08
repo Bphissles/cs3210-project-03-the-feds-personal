@@ -1,7 +1,5 @@
 <script setup>
-import HelloWorld from '../components/HelloWorld.vue'
 import ContentCard from '../components/ContentCard.vue'
-import PythonFileUploader from '../components/PythonFileUploader.vue'
 </script>
 <template>
   <div class="container">
@@ -15,53 +13,10 @@ import PythonFileUploader from '../components/PythonFileUploader.vue'
             A Python Variable Format and Scope Checker built with<br>Vue 3, Bootstrap 5.3, and a Python Flask backend.
           </p>
           <div class="d-flex justify-content-center gap-2 mt-4">
-            <a href="https://vuejs.org/" class="btn btn-primary">The Process</a>
-            <a href="https://flask.palletsprojects.com/" class="btn btn-info">The Tests</a>
-            <a href="https://flask.palletsprojects.com/" class="btn btn-success">The Deployments</a>
+            <router-link to="/architecture" class="btn btn-success">The Architecture</router-link>
+            <router-link to="/tests" class="btn btn-info">The Tests</router-link>
+            <router-link to="/report" class="btn btn-primary">The Report</router-link>
           </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- API Demo Section -->
-    <section class="py-3">
-      <div class="row justify-content-center">
-        <div class="col-md-10">
-          <ContentCard title="API Integration Demo" subtitle="Test the connection to the Python backend">
-            <HelloWorld />
-          </ContentCard>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Python File Uploader Section -->
-    <section class="py-3">
-      <div class="row justify-content-center">
-        <div class="col-md-10">
-          <ContentCard 
-            title="Python File Analyzer - Simple" 
-            subtitle="Upload and view Python file contents"
-            wellTitle="Python File Analyzer - Simple"
-            wellSubtitle="Upload a Python (.py) file to view its contents. The file will be sent to the backend for processing."
-          >
-            <PythonFileUploader endpoint="python-file" endpointUrl="http://localhost:5000/api/python-file"/>
-          </ContentCard>
-        </div>
-      </div>
-    </section>
-
-    <!-- Python File Uploader Section -->
-    <section class="py-3">
-      <div class="row justify-content-center">
-        <div class="col-md-10">
-          <ContentCard 
-            title="Python File Analyzer - Advanced" 
-            subtitle="Upload and view Python file contents"
-            wellTitle="Python File Analyzer - Advanced"
-            wellSubtitle="Upload a Python (.py) file to view its contents. The file will be sent to the backend for processing."
-          >
-            <PythonFileUploader endpoint="file-parser" endpointUrl="http://localhost:5000/api/file-parser"/>
-          </ContentCard>
         </div>
       </div>
     </section>
@@ -70,6 +25,28 @@ import PythonFileUploader from '../components/PythonFileUploader.vue'
     <section class="py-5">
       <h2 class="text-center mb-4">Key Features</h2>
       <div class="row g-4">
+        <div class="col-sm-12">
+          <h3 class="">Backend <hr></h3>
+        </div>
+        <div class="col-md-6">
+          <ContentCard title="Render - Deploying the Backend" image="/images/render-thumb.png">
+            <p>Deploying the Python Flask backend with Render for a production-ready environment.</p>
+            <template #footer>
+              <a href="https://render.com/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
+            </template>
+          </ContentCard>
+        </div>
+        <div class="col-md-6">
+          <ContentCard title="Python + Flask Backend" image="/images/flask-thumb.png">
+            <p>Lightweight and powerful Python Flask backend with RESTful API endpoints.</p>
+            <template #footer>
+              <a href="https://flask.palletsprojects.com/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
+            </template>
+          </ContentCard>
+        </div>
+        <div class="col-sm-12 pt-4">
+          <h3 class="">Frontend <hr></h3>
+        </div>
         <div class="col-md-4">
           <ContentCard title="Vue 3 Frontend" image="/images/vue-thumb.png">
             <p>Built with Vue 3 Composition API and script setup for clean, maintainable code.</p>
@@ -79,26 +56,10 @@ import PythonFileUploader from '../components/PythonFileUploader.vue'
           </ContentCard>
         </div>
         <div class="col-md-4">
-          <ContentCard title="Python + Flask Backend" image="/images/flask-thumb.png">
-            <p>Lightweight and powerful Python Flask backend with RESTful API endpoints.</p>
-            <template #footer>
-              <a href="https://flask.palletsprojects.com/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
-            </template>
-          </ContentCard>
-        </div>
-        <div class="col-md-4">
           <ContentCard title="Bootstrap 5.3 & SASS" image="/images/bootstrap-thumb.png">
             <p>Responsive design with Bootstrap 5.3 and custom SASS styling for a modern look and feel.</p>
             <template #footer>
               <a href="https://getbootstrap.com/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
-            </template>
-          </ContentCard>
-        </div>
-        <div class="col-md-4">
-          <ContentCard title="Render - Deploying the Backend" image="/images/render-thumb.png">
-            <p>Deploying the Python Flask backend with Render for a production-ready environment.</p>
-            <template #footer>
-              <a href="https://render.com/" target="_blank" class="btn btn-sm btn-outline-primary">Learn More</a>
             </template>
           </ContentCard>
         </div>

@@ -29,19 +29,8 @@ const route = useRoute();
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" :class="{ active: route.path === '/functionality' }" to="/functionality">
-              <i class="bi bi-gear-fill me-1"></i> Functionality
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <!-- MAYBE REMOVE THIS -->
-            <router-link class="nav-link" :class="{ active: route.path === '/ui' }" to="/ui">
-              <i class="bi bi-layout-text-window me-1"></i> UI
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" :class="{ active: route.path === '/workflow' }" to="/workflow">
-              <i class="bi bi-kanban me-1"></i> Workflow
+            <router-link class="nav-link" :class="{ active: route.path === '/tests' }" to="/tests">
+              <i class="bi bi-file-text me-1"></i> Tests
             </router-link>
           </li>
           <li class="nav-item">
