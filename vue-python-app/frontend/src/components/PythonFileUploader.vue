@@ -21,6 +21,7 @@ const pythonFile = ref(null)
 const fileName = ref('')
 const fileContent = ref('')
 const parsingResult = ref(null)
+const scopeResult = ref(null)
 const loading = ref(false)
 const error = ref(null)
 const success = ref(false)
@@ -64,6 +65,7 @@ const uploadFile = async () => {
     if (response.data.parsing_result) {
       isAdvancedParser.value = true
       parsingResult.value = response.data.parsing_result
+      scopeResult.value = response.data.scope_result
       fileContent.value = ''
     } else {
       isAdvancedParser.value = false
@@ -187,6 +189,19 @@ const highlightCode = (code) => {
             </div>
             <div v-else class="alert alert-danger">
               <strong>Parsing Error:</strong> {{ parsingResult.error }}
+            </div>
+          </div>
+        </div>
+        
+        <!-- Scope Identifier response (variables and their scopes) -->
+        <div v-if="scopeResult && isAdvancedParser">
+          <h5 class="mb-2">Scope Identifier Results:</h5>
+          <div class="mb-3">
+            <div v-if="scopeResult.success" class="scope-results">
+              <pre class="code-block"><code class="language-python">{{ scopeResult }}</code></pre>
+            </div>
+            <div v-else class="alert alert-danger">
+              <strong>Scope Identifier Error:</strong> {{ scopeResult.error }}
             </div>
           </div>
         </div>
