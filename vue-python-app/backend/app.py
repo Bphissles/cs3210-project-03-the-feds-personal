@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from parser import parse_python_code
+from scopeIdentifier import identify_scopes
 
 app = Flask(__name__)
 # Enable CORS for all routes with specific configuration
@@ -64,6 +65,9 @@ def analyze_python_file():
     
     # Parse the Python code using our parser module
     parsing_result = parse_python_code(file_content)
+    
+    # Identify variables and their scopes
+    scope_result = identify_scopes(file_content)
     """
     New PY files can be placed here, and consume parsing_result
     or we can call them directly in the parser. Best practice is to
@@ -72,7 +76,8 @@ def analyze_python_file():
     
     return jsonify({
         "filename": file.filename,
-        "parsing_result": parsing_result
+        "parsing_result": parsing_result,
+        "scope_result": scope_result
     })
 
 if __name__ == '__main__':
