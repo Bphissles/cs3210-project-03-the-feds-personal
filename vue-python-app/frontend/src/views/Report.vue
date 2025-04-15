@@ -1,49 +1,78 @@
 <script setup>
-import { computed } from 'vue';
+import { ref, computed } from 'vue';
+import axios from 'axios';
+import { config } from '../config';
 import '@/styles/views/report.scss';
 
-const tempData = [
-  {
-    variable: "MAX_COUNT",
-    scope: "Global",
-    line: 1,
-    issue: "Should be UPPERCASE",
-    status: 'warning'
-  },
-  {
-    variable: "x",
-    scope: "Local",
-    line: 4,
-    issue: "Naming OK",
-    status: 'success'
-  },
-  {
-    variable: "MAX_COUNT",
-    scope: "Global",
-    line: 5,
-    issue: "Correct global usage",
-    status: 'success'
-  },
-  {
-    variable: "global_var",
-    scope: "Local",
-    line: 8,
-    issue: "Warning: Global-like name but not declared global",
-    status: 'warning'
-  },
-  {
-    variable: "tempVar",
-    scope: "Local",
-    line: 9,
-    issue: "Naming Violation: Use snake_case (suggestion: temp_var)",
-    status: 'error'
-  }
-];
+// File upload related variables
+const pythonFile = ref(null);
+const fileName = ref('');
+const loading = ref(false);
+const error = ref(null);
+const success = ref(false);
 
-const totalIssues = computed(() => tempData.length);
+// Analysis results
+const analysisData = ref([]);
+
+// Handle file selection
+const handleFileChange = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    fileName.value = file.name;
+    pythonFile.value = file;
+  }
+};
+
+// Upload and analyze file
+const uploadFile = async () => {
+  if (!pythonFile.value) {
+    error.value = 'Please select a file';
+    return;
+  }
+  
+  loading.value = true;
+  error.value = null;
+  success.value = false;
+  
+  try {
+    const formData = new FormData();
+    formData.append('file', pythonFile.value);
+    
+    const response = await axios.post(`${config.apiBaseUrl}/file-parser`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+    
+    // Process the response
+    if (response.data.naming_result && response.data.naming_result.success) {
+      analysisData.value = response.data.naming_result.variables || [];
+      success.value = true;
+    } else {
+      error.value = 'Failed to analyze file';
+    }
+  } catch (err) {
+    error.value = err.message || 'Error uploading file';
+    console.error('API Error:', err);
+  } finally {
+    loading.value = false;
+  }
+};
+
+// Reset the form
+const resetForm = () => {
+  pythonFile.value = null;
+  fileName.value = '';
+  error.value = null;
+  success.value = false;
+  analysisData.value = [];
+};
+
+// Computed properties for report statistics
+const totalIssues = computed(() => analysisData.value.length);
 const issuesByScope = computed(() => {
   const result = {};
-  tempData.forEach(item => {
+  analysisData.value.forEach(item => {
     if (!result[item.scope]) {
       result[item.scope] = 0;
     }
@@ -60,7 +89,7 @@ const issueTypes = computed(() => {
     'Other': 0
   };
   
-  tempData.forEach(item => {
+  analysisData.value.forEach(item => {
     if (item.issue.includes('Naming Violation') || item.issue.includes('Should be')) {
       types['Naming Violations']++;
     } else if (item.issue.includes('Global') || item.issue.includes('Scope')) {
@@ -89,10 +118,57 @@ const getRowClass = (status) => {
 
 <template>
   <div class="container py-5">
-    <h1 class="text-center mb-5">Scope Analysis Report</h1>
+    <h1 class="text-center mb-5">Python Code Analysis Report</h1>
+    
+    <!-- File Upload Section -->
+    <div class="card mb-4 border-0 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title mb-3">Upload Python File for Analysis</h5>
+        <form @submit.prevent="uploadFile" class="mb-3">
+          <div class="mb-3">
+            <label for="pythonFile" class="form-label">Select Python File (.py)</label>
+            <input 
+              type="file" 
+              class="form-control" 
+              id="pythonFile" 
+              accept=".py"
+              @change="handleFileChange"
+              :disabled="loading"
+            >
+          </div>
+          
+          <div class="d-flex gap-2">
+            <button 
+              type="submit" 
+              class="btn btn-primary" 
+              :disabled="!pythonFile || loading"
+            >
+              <span v-if="loading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              {{ loading ? 'Analyzing...' : 'Analyze File' }}
+            </button>
+            <button 
+              type="button" 
+              class="btn btn-outline-secondary" 
+              @click="resetForm"
+              :disabled="loading"
+            >
+              Reset
+            </button>
+          </div>
+        </form>
+        
+        <div v-if="error" class="alert alert-danger">
+          {{ error }}
+        </div>
+        
+        <div v-if="success" class="alert alert-success">
+          Successfully analyzed {{ fileName }}
+        </div>
+      </div>
+    </div>
 
     <!-- Summary Cards Section -->
-    <div class="row mb-4">
+    <div v-if="analysisData.length > 0" class="row mb-4">
       <div class="col-md-4 mb-3">
         <div class="card h-100 border-0 shadow-sm summary-card">
           <div class="card-body">
@@ -128,11 +204,12 @@ const getRowClass = (status) => {
     </div>
 
     <!-- Table Section -->
-    <div class="row">
+    <div v-if="analysisData.length > 0" class="row">
       <div class="col-md-12">
         <div class="card h-100 border-0 shadow-sm report-card">
-          <div class="py-3 ps-3">
+          <div class="py-3 ps-3 d-flex justify-content-between align-items-center">
             <h4 class="card-title mb-0">Detailed Analysis</h4>
+            <span class="badge bg-primary me-3">{{ analysisData.length }} variables analyzed</span>
           </div>
           <div class="table-responsive">
             <table class="table table-hover mb-0 report-table">
@@ -145,7 +222,7 @@ const getRowClass = (status) => {
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(item, index) in tempData" :key="index" :class="getRowClass(item.status)">
+                <tr v-for="(item, index) in analysisData" :key="index" :class="getRowClass(item.status)">
                   <td><code>{{ item.variable }}</code></td>
                   <td>{{ item.scope }}</td>
                   <td>{{ item.line }}</td>

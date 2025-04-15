@@ -22,6 +22,7 @@ const fileName = ref('')
 const fileContent = ref('')
 const parsingResult = ref(null)
 const scopeResult = ref(null)
+const namingResult = ref(null)
 const loading = ref(false)
 const error = ref(null)
 const success = ref(false)
@@ -66,6 +67,7 @@ const uploadFile = async () => {
       isAdvancedParser.value = true
       parsingResult.value = response.data.parsing_result
       scopeResult.value = response.data.scope_result
+      namingResult.value = response.data.naming_result
       fileContent.value = ''
     } else {
       isAdvancedParser.value = false
@@ -202,6 +204,19 @@ const highlightCode = (code) => {
             </div>
             <div v-else class="alert alert-danger">
               <strong>Scope Identifier Error:</strong> {{ scopeResult.error }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Naming Conventions response (variables and their naming issues) -->
+        <div v-if="namingResult && isAdvancedParser">
+          <h5 class="mb-2">Naming Conventions Results:</h5>
+          <div class="mb-3">
+            <div v-if="namingResult.success" class="naming-results">
+              <pre class="code-block"><code class="language-python">{{ namingResult }}</code></pre>
+            </div>
+            <div v-else class="alert alert-danger">
+              <strong>Naming Conventions Error:</strong> {{ namingResult.error }}
             </div>
           </div>
         </div>
