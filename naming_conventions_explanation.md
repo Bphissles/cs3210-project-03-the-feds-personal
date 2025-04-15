@@ -21,6 +21,20 @@ This class defines constants for the different naming convention types that are 
 ### 2. NamingConventionViolation Class
 
 ```python
+class NamingConventionViolation:
+    """Class to represent a naming convention violation"""
+    def __init__(self, name: str, expected_convention: str, line: int):
+        self.name = name
+        self.expected_convention = expected_convention
+        self.line = line
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to dictionary for JSON serialization"""
+        return {
+            'name': self.name,
+            'expected_convention': self.expected_convention,
+            'line': self.line
+        }
 ```
 
 This class defines constants for the different naming convention types that are enforced by the module.
