@@ -30,7 +30,7 @@ const handleLinkClick = (e,message) => {
           <h5 class="text-primary tech-title"><span class="text-secondary">The Feds</span> Project 3</h5>
           <p class="footer-text">A Python Variable Format and Scope Checker with Vue 3 and Python Flask.</p>
           <div class="d-flex gap-2">
-            <a href="https://github.com/ThienNgoLe-CS/cs3210-project-03-the-feds/tree/main" class="btn btn-sm btn-outline-primary rounded-circle" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Bphissles/cs3210-project-03-the-feds-personal" class="btn btn-sm btn-outline-primary rounded-circle" target="_blank" rel="noopener noreferrer">
               <i class="bi bi-github"></i>
             </a>
             <a href="https://www.reddit.com/r/ChatGPT/comments/1jmifu0/best_ai_generated_video/" class="btn btn-sm btn-outline-primary rounded-circle" target="_blank" rel="noopener noreferrer">
